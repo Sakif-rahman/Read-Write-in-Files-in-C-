@@ -1,0 +1,49 @@
+app: main.o modsakif.o  
+	cc -o app main.o modsakif.o
+
+main.o: main.c sakif.h
+	cc -c main.c 
+
+modsakif.o: modsakif.c sakif.h
+	cc -c modsakif.c
+  
+  
+#include <stdio.h>
+#include <stdlib.h>
+#include "sakif.h"
+int main(int arg, char *argv[])
+{
+	int a = 5;
+	factorial(a);
+	return 0;
+}
+
+
+
+
+#ifndef _SAKIF_
+#define _SAKIF_
+
+int factorial(int a);
+
+#endif
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "sakif.h"
+
+int factorial(int a )
+{
+	printf("print facrioal... === %d\n",a );
+	int i, fac=1;
+	for(i=1;i<=a;i++)
+	{
+		fac=fac*i;
+	}
+	printf("facrioal is       === %d\n",fac );
+	
+	return fac;
+ 
+
+}
